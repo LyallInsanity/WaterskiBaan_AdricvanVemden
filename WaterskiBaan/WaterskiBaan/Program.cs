@@ -11,7 +11,7 @@ namespace WaterskiBaan
         static void Main(string[] args)
         {
 
-            TestOpdracht2();
+            TestOpdracht3();
         }
         private static void TestOpdracht2()
         {
@@ -38,10 +38,24 @@ namespace WaterskiBaan
             kabel.VerschuifLijnen();
             Console.WriteLine(kabel);
             kabel.VerschuifLijnen();
-            kabel.VerschuifLijnen();
             Console.WriteLine(kabel);
             kabel.VerwijderLijnVanKabel();
             Console.WriteLine(kabel);
+        }
+
+        private static void TestOpdracht3()
+        {
+            LijnenVoorraad lijnenvoorraad = new LijnenVoorraad();
+            lijnenvoorraad.LijnToevoegenAanRij(new Lijn());
+            lijnenvoorraad.LijnToevoegenAanRij(new Lijn());
+            lijnenvoorraad.LijnToevoegenAanRij(new Lijn());
+            lijnenvoorraad.LijnToevoegenAanRij(new Lijn());
+            lijnenvoorraad.LijnToevoegenAanRij(new Lijn());
+            lijnenvoorraad.LijnToevoegenAanRij(new Lijn());
+            lijnenvoorraad.LijnToevoegenAanRij(new Lijn());
+            Console.WriteLine(lijnenvoorraad);
+            lijnenvoorraad.VerwijderEersteLijn();
+            Console.WriteLine(lijnenvoorraad);
         }
     }
 }
