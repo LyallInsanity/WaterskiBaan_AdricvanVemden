@@ -15,14 +15,7 @@ namespace WaterskiBaan
         {
             if (_lijnen.Count > 0)
             {
-                if (_lijnen.First.Value.PositieOpDeKabel != 0)
-                {
-                    return true;
-                }
-                else
-                {
-                    return false;
-                }
+                return (_lijnen.First.Value.PositieOpDeKabel != 0) ? true : false;
             }
             else
             {
@@ -31,7 +24,7 @@ namespace WaterskiBaan
         }
         public void NeemLijnInGebruik(Lijn lijn)
         {
-            if (IsStartPositieLeeg() == true)
+            if (IsStartPositieLeeg())
             {
                 _lijnen.AddFirst(lijn);
             }
@@ -63,22 +56,13 @@ namespace WaterskiBaan
         }
         public override string ToString()
         {
-            string value = "";
-
-            if (_lijnen.Count > 0)
+            string lijnRes = "";
+            foreach (Lijn lijn in _lijnen)
             {
-                Lijn laatste = _lijnen.Last.Value;
-                foreach (Lijn lijn in _lijnen)
-                {
-                    value += lijn.PositieOpDeKabel.ToString();
-                    if (!lijn.Equals(laatste))
-                    {
-                        value += "|";
-                    }
-                }
-            }
+                lijnRes += lijn.PositieOpDeKabel + "| ";
 
-            return value;
+            }
+            return lijnRes;
         }
     }
 }
