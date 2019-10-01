@@ -11,7 +11,7 @@ namespace WaterskiBaan
         static void Main(string[] args)
         {
 
-            TestOpdracht3();
+            TestOpdracht8();
         }
         private static void TestOpdracht2()
         {
@@ -56,6 +56,23 @@ namespace WaterskiBaan
             Console.WriteLine(lijnenvoorraad);
             lijnenvoorraad.VerwijderEersteLijn();
             Console.WriteLine(lijnenvoorraad);
+        }
+
+        private static void TestOpdracht8()
+        {
+            //sporter start zonder skies en zwemvest
+            Sporter sp1 = new Sporter(MoveCollection.GetWillekeurigeMoves());
+            Waterskibaan waterskib = new Waterskibaan();
+            Skies ski = new Skies();
+            Zwemvest zwemv = new Zwemvest();
+            // Geen zwemvest & skies
+            //wski.SporterStart(sp1);
+            sp1.Zwemvest = zwemv;
+            // Geen skies
+            //waterskib.SporterStart(sp1);
+            sp1.Skies = ski;
+            // Wel zwemvest en skies
+            waterskib.SporterStart(sp1);
         }
     }
 }

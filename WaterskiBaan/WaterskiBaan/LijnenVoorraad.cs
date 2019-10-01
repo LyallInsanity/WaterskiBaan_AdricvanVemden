@@ -17,14 +17,18 @@ namespace WaterskiBaan
 
         public Lijn VerwijderEersteLijn()
         {
-        return (_lijnen.Count > 0) ? _lijnen.Dequeue() : null;
+        return (GetAantalLijnen() > 0) ? _lijnen.Dequeue() : null;
             
-
         }
 
         public int GetAantalLijnen()
         {
-            return _lijnen.Count;
+            if (_lijnen != null)
+            {
+                return _lijnen.Count;
+            }
+
+            return 0;
         }
 
         public override string ToString()
