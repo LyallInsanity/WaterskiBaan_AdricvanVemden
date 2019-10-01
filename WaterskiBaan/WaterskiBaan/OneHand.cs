@@ -6,9 +6,11 @@ using System.Threading.Tasks;
 
 namespace WaterskiBaan
 {
-    class Lijn
+    class OneHand : IMoves
     {
-        public int PositieOpDeKabel { get; set; }
-        public Sporter Sporter { get; set; }
+        public int Move()
+        {
+            return 1;
+        }
     }
 }

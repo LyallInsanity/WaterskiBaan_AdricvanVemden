@@ -12,12 +12,19 @@ namespace WaterskiBaan
         public int AantalRondenNogTeGaan { get; set; } = 0;
         public Zwemvest Zwemvest { get; set; }
         public Skies Skies { get; set; }
-        public Color KleudingKLeur { get; set; }
+        public Color KledingKleur { get; set; }
         public List<IMoves> Moves { get; set; }
+        public int BehaaldePunten { get; set; }
 
         public Sporter(List<IMoves> moves)
         {
-           this.Moves = moves;
+            BehaaldePunten = 0;
+           Moves = moves;
+         
+            foreach(var move in Moves)
+            {
+                BehaaldePunten += move.Move();
+            }
         }
     }
 }
