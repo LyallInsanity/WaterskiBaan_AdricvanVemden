@@ -13,14 +13,15 @@ namespace WaterskiBaan
 
         public bool IsStartPositieLeeg()
         {
-            if (_lijnen.Count > 0)
+            foreach (Lijn lijn in _lijnen)
             {
-                return (_lijnen.First.Value.PositieOpDeKabel != 0) ? true : false;
+                if (lijn.PositieOpDeKabel == 0)
+                {
+                    return false;
+                }
             }
-            else
-            {
-                return true;
-            }
+
+            return true;
         }
         public void NeemLijnInGebruik(Lijn lijn)
         {
@@ -36,12 +37,14 @@ namespace WaterskiBaan
             {
                 if (lijn.PositieOpDeKabel != 9)
                 {
-                    lijn.PositieOpDeKabel += 1;
+                    lijn.PositieOpDeKabel++;
                 }
                 else
                 {
+
                     lijn.PositieOpDeKabel = 0;
                     lijn.Sporter.AantalRondenNogTeGaan--;
+
                 }
             }
         }

@@ -11,7 +11,7 @@ namespace WaterskiBaan
         static void Main(string[] args)
         {
 
-            TestOpdracht8();
+            TestOpdracht11();
         }
         private static void TestOpdracht2()
         {
@@ -73,6 +73,31 @@ namespace WaterskiBaan
             sp1.Skies = ski;
             // Wel zwemvest en skies
             waterskib.SporterStart(sp1);
+        }
+        private static void TestOpdracht10()
+        {
+            WachtrijInstructie w = new WachtrijInstructie();
+            WachtrijStarten ws = new WachtrijStarten();
+            InstructieGroep ig = new InstructieGroep();
+            w.SporterNeemPlaatsInRij(new Sporter(MoveCollection.GetWillekeurigeMoves()));
+            w.SporterNeemPlaatsInRij(new Sporter(MoveCollection.GetWillekeurigeMoves()));
+            w.SporterNeemPlaatsInRij(new Sporter(MoveCollection.GetWillekeurigeMoves()));
+            ws.SporterNeemPlaatsInRij(new Sporter(MoveCollection.GetWillekeurigeMoves()));
+            ws.SporterNeemPlaatsInRij(new Sporter(MoveCollection.GetWillekeurigeMoves()));
+            ws.SporterNeemPlaatsInRij(new Sporter(MoveCollection.GetWillekeurigeMoves()));
+            ig.SporterNeemPlaatsInRij(new Sporter(MoveCollection.GetWillekeurigeMoves()));
+            ig.SporterNeemPlaatsInRij(new Sporter(MoveCollection.GetWillekeurigeMoves()));
+            ig.SporterNeemPlaatsInRij(new Sporter(MoveCollection.GetWillekeurigeMoves()));
+
+            Console.WriteLine(w.ToString());
+            Console.WriteLine(ws.ToString());
+            Console.WriteLine(ig.ToString());
+
+        }
+        private static void TestOpdracht11()
+        {
+            Game game = new Game();
+            game.Initialize();
         }
     }
 }

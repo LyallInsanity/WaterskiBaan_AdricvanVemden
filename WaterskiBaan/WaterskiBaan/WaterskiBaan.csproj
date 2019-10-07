@@ -44,12 +44,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Game.cs" />
     <Compile Include="IMoves.cs" />
+    <Compile Include="InstructieAfgelopenArgs.cs" />
+    <Compile Include="InstructieGroep.cs" />
     <Compile Include="Jump.cs" />
     <Compile Include="Kabel.cs" />
     <Compile Include="Lijn.cs" />
     <Compile Include="LijnenVoorraad.cs" />
     <Compile Include="MoveCollection.cs" />
+    <Compile Include="NieuweBezoekerArgs.cs" />
     <Compile Include="OneHand.cs" />
     <Compile Include="OneLeg.cs" />
     <Compile Include="Program.cs" />
@@ -57,6 +61,9 @@
     <Compile Include="Skies.cs" />
     <Compile Include="Sporter.cs" />
     <Compile Include="Turn.cs" />
+    <Compile Include="Wachtrij.cs" />
+    <Compile Include="WachtrijInstructie.cs" />
+    <Compile Include="WachtrijStarten.cs" />
     <Compile Include="Waterskibaan.cs" />
     <Compile Include="Zwemvest.cs" />
   </ItemGroup>
