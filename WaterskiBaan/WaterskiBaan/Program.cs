@@ -97,7 +97,7 @@ namespace WaterskiBaan
         private static void TestOpdracht11()
         {
             Game game = new Game();
-            game.Initialize();
+           // game.Initialize();
         }
     }
 }

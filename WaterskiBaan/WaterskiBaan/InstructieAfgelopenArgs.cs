@@ -6,9 +6,12 @@ using System.Threading.Tasks;
 
 namespace WaterskiBaan
 {
-     class InstructieAfgelopenArgs : EventArgs
+   public class InstructieAfgelopenArgs : EventArgs
     {
-        public List<Sporter> SportersKlaar { get; set; }
-        public List<Sporter> SportersNieuw { get; set; }
+        public List<Sporter> Sporters { get; }
+        public InstructieAfgelopenArgs(List<Sporter> sporters)
+        {
+            Sporters = sporters;
+        }
     }
 }

@@ -1,18 +1,19 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Drawing;
+using System.Windows.Media;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace WaterskiBaan
 {
-    class Waterskibaan
+    public class Waterskibaan
     {
 
-        LijnenVoorraad lijnenvoorraad;
-        Kabel kabel;
-        
+        public LijnenVoorraad lijnenvoorraad;
+        public Kabel kabel;
+        Random rand = new Random();
+
         public Waterskibaan()
         {
             lijnenvoorraad = new LijnenVoorraad();
@@ -35,23 +36,41 @@ namespace WaterskiBaan
                 if (kabel.IsStartPositieLeeg())
                 {
 
-                    Random rand = new Random();
                     Lijn _lijn = lijnenvoorraad.VerwijderEersteLijn();
                     kabel.NeemLijnInGebruik(_lijn);
                     _lijn.Sporter = sp;
-                    sp.AantalRondenNogTeGaan = rand.Next(1, 3);
-                    sp.KledingKleur = (Color.Blue);
+                    
                 }
             }
         }
         public void VerplaatsKabel()
         {
+            
+            for (LinkedListNode<Lijn> current = kabel._lijnen?.First; current != null; current = current.Next)
+            {
+                if (current.Value.Sporter.Moves.Count > 0 && rand.Next(0, 4) == 0)
+                {
+                    current.Value.Sporter.HuidigeMove = current.Value.Sporter.Moves[rand.Next(0, current.Value.Sporter.Moves.Count)];
+                }
+                else
+                {
+                    current.Value.Sporter.HuidigeMove = null;
+                }
+            }
+
             kabel.VerschuifLijnen();
+
+           Lijn _lijn = kabel.VerwijderLijnVanKabel();
+            if (_lijn != null)
+            {
+                lijnenvoorraad.LijnToevoegenAanRij(_lijn);
+           }
+            
         }
 
         public override string ToString()
         {
-            return $"{lijnenvoorraad.ToString()}  {kabel.ToString()} ";
+            return $"{lijnenvoorraad.ToString()}";
         }
     }
 }

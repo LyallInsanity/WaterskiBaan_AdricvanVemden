@@ -1,0 +1,114 @@
+﻿<Window x:Class="Visual.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Visual"
+        mc:Ignorable="d"
+         Title="Waterskibaan" Height="900" Width="1200">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="208*"/>
+            <ColumnDefinition Width="233*"/>
+            <ColumnDefinition Width="155*"/>
+        </Grid.ColumnDefinitions>
+        <Canvas HorizontalAlignment="Left" x:Name="Canvas" Height="870" VerticalAlignment="Top" Width="1200" Background="YellowGreen" Grid.ColumnSpan="3" Margin="0,0,0,-1">
+            <Canvas Height="97" x:Name="CanvasNewVisitor" Background="Azure" Canvas.Top="10" Width="560" Canvas.Left="4"/>
+            <Label Content="Wachtrij instructie" x:Name="LabelVisitor" Canvas.Top="-8" Width="252" Canvas.Left="-2"/>
+            <Canvas Height="22" x:Name="CanvasInstructieGroep" Background="Azure" Canvas.Left="4" Canvas.Top="118" Width="560"/>
+            <Label Content="Instructie groep" x:Name="LabelInstructie" Canvas.Top="100" Width="252" Canvas.Left="-2"/>
+            <Canvas Height="22" x:Name="CanvasWachtrijStarten" Background="Azure" Canvas.Left="4" Canvas.Top="154" Width="560"/>
+            <Label Content="Wachtrij starten" x:Name="LabelWachtrijStarten" Canvas.Top="136" Width="250" Canvas.Left="-1"/>
+            <Label Content="Label" x:Name="LabelInfoSp" Canvas.Left="10" Canvas.Top="277" Width="554" Height="132"/>
+            <Label Content="Waterskibaan data" FontSize="20" Canvas.Left="115" Canvas.Top="198" Width="203"/>
+
+        </Canvas>
+
+        <Canvas Canvas.Left="736" x:Name="CanvasWater" Canvas.Top="390" Grid.ColumnSpan="2" Margin="194,28,30,307" Background="LightSkyBlue" Grid.Column="1">
+            <Rectangle  x:Name="kabelbaan" Fill="LightSkyBlue" Height="400" Canvas.Left="133" Stroke="Black" Canvas.Top="62" Width="300"/>
+            <Label x:Name="LabelPlace0" Content="0" Canvas.Left="145" Canvas.Top="250"/>
+            <Label x:Name="LabelPlace1" Content="1" Canvas.Left="145" Canvas.Top="125"/>
+            <Label x:Name="LabelPlace2" Content="2" Canvas.Left="208" Canvas.Top="60"/>
+            <Label x:Name="LabelPlace3" Content="3" Canvas.Left="332" Canvas.Top="60"/>
+            <Label x:Name="LabelPlace4" Content="4" Canvas.Left="401" Canvas.Top="125"/>
+            <Label x:Name="LabelPlace5" Content="5" Canvas.Left="401" Canvas.Top="250"/>
+            <Label x:Name="LabelPlace6" Content="6" Canvas.Left="401" Canvas.Top="375"/>
+            <Label x:Name="LabelPlace7" Content="7" Canvas.Left="332" Canvas.Top="437"/>
+            <Label x:Name="LabelPlace8" Content="8" Canvas.Left="208" Canvas.Top="437"/>
+            <Label x:Name="LabelPlace9" Content="9" Canvas.Left="145" Canvas.Top="375"/>
+
+            <Label x:Name="LabelMovePlace0" Content="" Canvas.Left="28" Canvas.Top="250" RenderTransformOrigin="0.5,0.5">
+                <Label.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="-90"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Label.RenderTransform>
+            </Label>
+            <Label x:Name="LabelMovePlace1" Content="" Canvas.Left="28" Canvas.Top="125" RenderTransformOrigin="0.5,0.5">
+                <Label.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="-90"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Label.RenderTransform>
+            </Label>
+            <Label x:Name="LabelMovePlace2" Content="" Canvas.Left="133"/>
+            <Label x:Name="LabelMovePlace3" Content="" Canvas.Left="332"/>
+            <Label x:Name="LabelMovePlace4" Content="" Canvas.Left="472" Canvas.Top="126" RenderTransformOrigin="0.5,0.5">
+                <Label.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="90"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Label.RenderTransform>
+            </Label>
+            <Label x:Name="LabelMovePlace5" Content="" Canvas.Left="476" Canvas.Top="249" RenderTransformOrigin="0.5,0.5">
+                <Label.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="90"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Label.RenderTransform>
+            </Label>
+            <Label x:Name="LabelMovePlace6" Content="" Canvas.Left="475" Canvas.Top="377" RenderTransformOrigin="0.5,0.5">
+                <Label.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="90"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Label.RenderTransform>
+            </Label>
+            <Label x:Name="LabelMovePlace7" Content="" Canvas.Left="145" Canvas.Top="506"/>
+            <Label x:Name="LabelMovePlace8" Content="" Canvas.Left="343" Canvas.Top="506"/>
+            <Label x:Name="LabelMovePlace9" Content="" Canvas.Left="28" Canvas.Top="375" RenderTransformOrigin="0.5,0.5">
+                <Label.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="-90"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Label.RenderTransform>
+            </Label>
+
+
+        </Canvas>
+        <Label Content="Lijnen voorraad" x:Name="LabelVoorraad" HorizontalAlignment="Left" Margin="10,234,0,0" VerticalAlignment="Top" Height="28" Width="561" Grid.ColumnSpan="2"/>
+        <Button x:Name="bt_start" Content="Start" HorizontalAlignment="Left" Margin="143.8,699,0,126.4" Width="63" Click="bt_start_Click" Grid.Column="2"/>
+        <Button x:Name="bt_stop" Content="Stop" Margin="216.8,699,29.6,126.4" Click="bt_stop_Click" Grid.Column="2"/>
+
+
+
+    </Grid>
+</Window>
