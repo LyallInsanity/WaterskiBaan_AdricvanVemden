@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace WaterskiBaan
 {
-    class LijnenVoorraad
+    public class LijnenVoorraad
     {
         private Queue<Lijn> _lijnen = new Queue<Lijn>();
 
@@ -27,7 +27,7 @@ namespace WaterskiBaan
 
         public override string ToString()
         {
-            return $"{GetAantalLijnen()} lijnen op voorraad";
+            return $"lijnen op voorraad: {GetAantalLijnen()}";
         }
     }
 }

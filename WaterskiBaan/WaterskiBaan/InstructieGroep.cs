@@ -6,19 +6,39 @@ using System.Threading.Tasks;
 
 namespace WaterskiBaan
 {
-    class InstructieGroep : Wachtrij
+    public class InstructieGroep : IWachtrij
     {
-        public override int MAX_LENGTE_RIJ { get { return 5; } }
-        public void OnInstructieAfgelopen(InstructieAfgelopenArgs args)
+        public int MAX_LENGTE_RIJ { get { return 5; } }
+        public Queue<Sporter> _wachtrijInstructieGroep = new Queue<Sporter>();
+
+        public List<Sporter> GetAlleSporters()
         {
-            foreach (Sporter sporter in args.SportersNieuw)
+            return _wachtrijInstructieGroep.ToList();
+        }
+
+
+        public void SporterNeemPlaatsInRij(Sporter sporter)
+        {
+            if (_wachtrijInstructieGroep.Count < MAX_LENGTE_RIJ)
             {
-                SporterNeemPlaatsInRij(sporter);
+                _wachtrijInstructieGroep.Enqueue(sporter);
             }
         }
-        public override string ToString()
+
+        public List<Sporter> SportersVerlatenRij(int aantal)
         {
-            return $"Er zitten {base.ToString()}  in de instructie groep";
+            List<Sporter> verlatenRij = new List<Sporter>();
+            while (aantal > 0 && _wachtrijInstructieGroep.Count > 0)
+            {
+                verlatenRij.Add(_wachtrijInstructieGroep.Dequeue());
+                aantal--;
+            }
+
+            return verlatenRij;
+        }
+            public override string ToString() {
+
+            return $"Instructie groep: {GetAlleSporters().Count} sporters";
         }
     }
 }

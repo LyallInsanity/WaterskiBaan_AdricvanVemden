@@ -6,11 +6,8 @@ using System.Threading.Tasks;
 
 namespace WaterskiBaan
 {
-    public class Jump : IMoves
+    public class LijnenVerplaatsArgs : EventArgs
     {
-        public int Move()
-        {
-            return 2;
-        }
+        public Sporter Sporter { get; set; }
     }
 }

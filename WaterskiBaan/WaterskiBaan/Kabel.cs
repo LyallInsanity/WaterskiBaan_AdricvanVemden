@@ -6,10 +6,10 @@ using System.Threading.Tasks;
 
 namespace WaterskiBaan
 {
-    class Kabel
+    public class Kabel
     {
 
-        private LinkedList<Lijn> _lijnen = new LinkedList<Lijn>();
+        public LinkedList<Lijn> _lijnen = new LinkedList<Lijn>();
 
         public bool IsStartPositieLeeg()
         {
@@ -33,32 +33,40 @@ namespace WaterskiBaan
         }
         public void VerschuifLijnen()
         {
-            foreach (Lijn lijn in _lijnen)
+            if (_lijnen.Count != 0)
             {
-                if (lijn.PositieOpDeKabel != 9)
+                foreach (Lijn lijn in _lijnen)
                 {
                     lijn.PositieOpDeKabel++;
                 }
-                else
+            }
+        }
+        
+        public Lijn VerwijderLijnVanKabel()
+        {
+          
+            if (_lijnen.Count != 0)
+            {
+                
+                Lijn _lijn = _lijnen.Last.Value;
+                if (_lijn.PositieOpDeKabel == 10)
                 {
+                    _lijnen.Remove(_lijn);
 
-                    lijn.PositieOpDeKabel = 0;
-                    lijn.Sporter.AantalRondenNogTeGaan--;
-
+                    if (_lijn.Sporter.AantalRondenNogTeGaan > 1)
+                    {
+                        _lijn.Sporter.AantalRondenNogTeGaan--;
+                        _lijn.PositieOpDeKabel = 0;
+                        _lijnen.AddFirst(_lijn);
+                        return null;
+                    }
+                    return _lijn;
                 }
             }
+            
+            return null;
         }
-        public Lijn VerwijderLijnVanKabel() {
-            if(_lijnen.Last.Value.PositieOpDeKabel == 9 &&  _lijnen.Last.Value.Sporter.AantalRondenNogTeGaan == 1)
-            {
-                _lijnen.RemoveLast();
-                return _lijnen.Last.Value;
-            }
-            else
-            {
-                return null;
-            }
-        }
+
         public override string ToString()
         {
             string lijnRes = "";
