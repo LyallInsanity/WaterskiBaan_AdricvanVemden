@@ -15,10 +15,10 @@ namespace WaterskiBaan
         
 
         public Waterskibaan waterskibaan;
-        public Lijn _lijn;
         public InstructieGroep instructieGroep; //5 per keer 
         public WachtrijInstructie wachtrijInstructie; // voor de nieuwe bezoekers
         public WachtrijStarten wachtrijStarten; // voordat ze gaan skien
+        public Logger logger;
 
         public delegate void NieuweBezoekerHandler(NieuweBezoekerArgs e);
         public event NieuweBezoekerHandler NieuweBezoeker;
@@ -38,8 +38,7 @@ namespace WaterskiBaan
             instructieGroep = new InstructieGroep();
             wachtrijInstructie = new WachtrijInstructie();
             wachtrijStarten = new WachtrijStarten();
-            _lijn = new Lijn();
-
+            logger = new Logger();
 
             NieuweBezoeker += OnNieuweBezoeker;
             InstructieAfgelopen += OnInstructieAfgelopen;
@@ -47,10 +46,7 @@ namespace WaterskiBaan
 
             timer.Tick += OnTimedEvent;
 
-
-
         }
-
 
         private void OnTimedEvent(Object source, EventArgs e)
         {
@@ -81,6 +77,8 @@ namespace WaterskiBaan
         private void OnNieuweBezoeker(NieuweBezoekerArgs e)
         {
             wachtrijInstructie.SporterNeemPlaatsInRij(e.Sporter);
+            logger.VoegToeAanLogger(e.Sporter);
+
             
         }
 

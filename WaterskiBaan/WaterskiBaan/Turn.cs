@@ -8,9 +8,16 @@ namespace WaterskiBaan
 {
     public class Turn : IMoves
     {
+
         public int Move()
         {
-            return 3;
+            return 20;
         }
+
+        public override string ToString()
+        {
+            return "Turn";
+        }
+
     }
 }

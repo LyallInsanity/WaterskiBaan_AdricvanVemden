@@ -22,7 +22,7 @@ namespace WaterskiBaan
 
             foreach(var move in Moves)
             {
-                if (rand.Next(0, 2) == 1)
+                if (rand.Next(0, 4) == 1)
                 {
                     moves.Add(move);
                 }

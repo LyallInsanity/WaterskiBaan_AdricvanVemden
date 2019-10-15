@@ -10,12 +10,12 @@ namespace WaterskiBaan
     {
         public int MAX_LENGTE_RIJ { get { return 5; } }
         public Queue<Sporter> _wachtrijInstructieGroep = new Queue<Sporter>();
+        private WachtrijStarten ws = new WachtrijStarten();
 
         public List<Sporter> GetAlleSporters()
         {
             return _wachtrijInstructieGroep.ToList();
         }
-
 
         public void SporterNeemPlaatsInRij(Sporter sporter)
         {
@@ -28,7 +28,7 @@ namespace WaterskiBaan
         public List<Sporter> SportersVerlatenRij(int aantal)
         {
             List<Sporter> verlatenRij = new List<Sporter>();
-            while (aantal > 0 && _wachtrijInstructieGroep.Count > 0)
+            while (aantal > 0 && _wachtrijInstructieGroep.Count > 0 && ws.GetAlleSporters().Count <= 15)
             {
                 verlatenRij.Add(_wachtrijInstructieGroep.Dequeue());
                 aantal--;
