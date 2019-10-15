@@ -8,9 +8,15 @@ namespace WaterskiBaan
 {
     public class OneHand : IMoves
     {
+
         public int Move()
         {
-            return 1;
+            return 10;
+        }
+
+        public override string ToString()
+        {
+            return "One hand";
         }
     }
 }

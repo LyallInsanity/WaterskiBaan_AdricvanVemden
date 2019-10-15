@@ -31,6 +31,7 @@ namespace WaterskiBaan
                 lijn.PositieOpDeKabel = 0;
             }
         }
+
         public void VerschuifLijnen()
         {
             if (_lijnen.Count != 0)

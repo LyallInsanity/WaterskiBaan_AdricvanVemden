@@ -37,7 +37,7 @@ namespace Visual
 
             DispatcherTimer = new DispatcherTimer(DispatcherPriority.Normal)
             {
-                Interval = TimeSpan.FromMilliseconds(200)
+                Interval = TimeSpan.FromMilliseconds(300)
             };
             DispatcherTimer.Tick += TimerEvent;
             _Game.Initialize(DispatcherTimer);
@@ -68,7 +68,15 @@ namespace Visual
            LabelVoorraad.Content = _Game.waterskibaan.lijnenvoorraad.ToString();
            LabelVisitor.Content = _Game.wachtrijInstructie.ToString();
            LabelInstructie.Content = _Game.instructieGroep.ToString();
-            
+           LabelWachtrijStarten.Content = _Game.wachtrijStarten.ToString();
+           LabelInfoSp.Content = "Totaal bezoekers: " + _Game.logger.TotaalBezoekers();
+           LabelInfoRondjes.Content = "Totaal rondjes: " + _Game.logger.TotaalRondjes();
+           LabelInfoHighscore.Content = "Highscore: " + _Game.logger.Highscore();
+           LabelInfoMoves.Content = "Unieke moves: " + _Game.logger.getMoves();
+           LabelInfoRood.Content = "Bezoekers met rode kleding: " + _Game.logger.Rodekleding;
+           LabelInfoLichste.Content = "Top 10 lichste bezoekers: " + _Game.logger.LichsteKleding();
+
+
         }
 
         private void DrawQueueNewVisitor(List<Sporter> queue , double offset)

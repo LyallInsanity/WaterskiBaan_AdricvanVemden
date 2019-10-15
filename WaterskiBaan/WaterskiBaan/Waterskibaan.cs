@@ -12,7 +12,7 @@ namespace WaterskiBaan
 
         public LijnenVoorraad lijnenvoorraad;
         public Kabel kabel;
-        Random rand = new Random();
+
 
         public Waterskibaan()
         {
@@ -45,20 +45,12 @@ namespace WaterskiBaan
         }
         public void VerplaatsKabel()
         {
-            
-            for (LinkedListNode<Lijn> current = kabel._lijnen?.First; current != null; current = current.Next)
+            foreach (Lijn lijn in kabel._lijnen)
             {
-                if (current.Value.Sporter.Moves.Count > 0 && rand.Next(0, 4) == 0)
-                {
-                    current.Value.Sporter.HuidigeMove = current.Value.Sporter.Moves[rand.Next(0, current.Value.Sporter.Moves.Count)];
-                }
-                else
-                {
-                    current.Value.Sporter.HuidigeMove = null;
-                }
+                lijn.Sporter.SetHuidigeMove();
             }
 
-            kabel.VerschuifLijnen();
+           kabel.VerschuifLijnen();
 
            Lijn _lijn = kabel.VerwijderLijnVanKabel();
             if (_lijn != null)

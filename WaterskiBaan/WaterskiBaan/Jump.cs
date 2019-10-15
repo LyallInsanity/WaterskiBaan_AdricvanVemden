@@ -10,7 +10,12 @@ namespace WaterskiBaan
     {
         public int Move()
         {
-            return 2;
+            return 25;
+        }
+        
+        public override string ToString()
+        {
+            return "Jump";
         }
     }
 }

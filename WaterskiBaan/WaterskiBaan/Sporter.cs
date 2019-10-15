@@ -1,9 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Windows.Media;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+
 
 namespace WaterskiBaan
 {
@@ -25,12 +23,21 @@ namespace WaterskiBaan
             clothes = Color.FromRgb((byte)rand.Next(0, 256), (byte)rand.Next(0, 256), (byte)rand.Next(0, 256));
             KledingKleur = clothes;
             AantalRondenNogTeGaan = rand.Next(1, 3);
-
-            foreach (var move in Moves)
-            {
-                BehaaldePunten += move.Move();
-            }
         }
+
+        public void SetHuidigeMove()
+        {
+           
+            if (rand.Next(0, 4) == 0 && Moves.Count > 0)
+            {
+                int number = rand.Next(Moves.Count);
+                HuidigeMove = Moves[number];
+                BehaaldePunten += HuidigeMove.Move();
+                return;
+            }
+            HuidigeMove = null;
+        }
+
 
 
         public override string ToString()
